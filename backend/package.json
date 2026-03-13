@@ -1,0 +1,20 @@
+{
+  "name": "kotlinlang.org-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@react-router/express": "^7.13.1",
+    "express": "^4.21.2",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.0"
+  }
+}

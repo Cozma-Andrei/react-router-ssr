@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "9000:9000"
+      - "3000:3000"
     environment:
-      - PORT=9000
+      - PORT=3000
     container_name: react-frontend
