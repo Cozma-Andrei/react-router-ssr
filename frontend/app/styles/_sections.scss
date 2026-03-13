@@ -1,0 +1,140 @@
+// Overview Page
+.overview-page {
+  background-color: #27282C;
+}
+
+// Rescui Card Styles
+.rescui-card {
+  display: block;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(127, 82, 255, 0.2);
+  background-color: rgba(127, 82, 255, 0.05);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    background-color: rgba(127, 82, 255, 0.1);
+    border-color: rgba(127, 82, 255, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+// Header Section
+.header-section {
+  background-color: transparent;
+  padding-top: 96px;
+
+  &__actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+    }
+  }
+
+  &__why-btn {
+    margin-left: 16px;
+  }
+
+  &__contributors {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+// Why Kotlin Section
+.why-kotlin-section {
+  background-color: #fff;
+  padding-top: 96px;
+
+  &__youtube {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__image {
+    max-width: 650px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+// Usage Section
+.usage-section {
+  background-color: #fff;
+  padding-top: 96px;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 192px;
+
+    @media (max-width: 640px) {
+      height: 160px;
+    }
+  }
+
+  &__logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    object-position: left;
+
+    &_spring {
+      padding: 10px 0;
+      box-sizing: border-box;
+    }
+  }
+}
+
+// Latest From Kotlin Section
+.latest-from-kotlin-section {
+  background-color: transparent;
+  padding-top: 96px;
+
+  &__banner-link {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// Start Section
+.start-section {
+  padding: 96px 0;
+  background: #7f52ff radial-gradient(89.53% 145.96% at 0.34% 100.79%, #EF4857 0%, #DE4970 17.58%, #B44DB0 50.31%, #7F52FF 97.03%);
+}
+
+// Programming Language
+.programming-language__code {
+  margin: 0;
+  padding: 24px;
+  background-color: #f5f5f5;
+  border-radius: 0 0 8px 8px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 24px;
+}

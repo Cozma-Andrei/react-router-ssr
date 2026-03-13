@@ -4,5 +4,30 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  publicDir: 'public',
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  resolve: {
+    dedupe: ['react', 'react-dom'],
+  },
+  ssr: {
+    noExternal: [
+      '@rescui/button',
+      '@rescui/card',
+      '@rescui/checkbox',
+      '@rescui/colors',
+      '@rescui/icons',
+      '@rescui/input',
+      '@rescui/tab-list',
+      '@rescui/tooltip',
+      '@rescui/typography',
+      '@rescui/ui-contexts',
+      '@jetbrains/kotlin-web-site-ui'
+    ],
+  },
+  optimizeDeps: {
+    include: ["react", "react-dom", "react-router-dom"],
+    exclude: [
+      '@jetbrains/kotlin-web-site-ui'
+    ]
+  }
 });
