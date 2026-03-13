@@ -1,21 +1,19 @@
-import { useState, useEffect } from 'react';
-import '@jetbrains/kotlin-web-site-ui/dist/header.css';
+// @ts-ignore
+import Header from '@jetbrains/kotlin-web-site-ui/out/components/header';
 
-const Header = (props: any) => {
-  const [Component, setComponent] = useState<any>(null);
-
-  useEffect(() => {
-    // @ts-ignore
-    import('@jetbrains/kotlin-web-site-ui/dist/header.js').then((mod) => {
-      setComponent(() => mod.default);
-    });
-  }, []);
-
-  if (!Component) {
-    return <div className="header-skeleton" style={{ height: '64px' }} />;
-  }
-
-  return <Component {...props} />;
+const GlobalHeader = (props: any) => {
+  return (
+    <Header
+      {...props}
+      currentUrl="/"
+      hasSearch={false}
+      searchConfig={{
+        searchAlgoliaId: '',
+        searchAlgoliaApiKey: '',
+        searchAlgoliaIndexName: '',
+      }}
+    />
+  );
 }
 
-export default Header;
+export default GlobalHeader;

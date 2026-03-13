@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
 import { TabList, Tab, TabSeparator } from '@rescui/tab-list';
@@ -16,23 +16,11 @@ hljs.registerLanguage('kotlin', kotlin);
 export function ProgrammingLanguage() {
   const textCn = useTextStyles();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    setActiveIndex(Math.floor(Math.random() * programmingLanguageTabs.length));
-  }, []);
-
-  const highlighted = (() => {
-    if (typeof document === 'undefined') {
-      return '';
-    }
-    const el = document.createElement('code');
-    el.className = 'language-kotlin';
-    el.textContent = programmingLanguageTabs[activeIndex].code;
-    hljs.highlightBlock(el);
-    return el.innerHTML;
-  })();
+  const highlighted = hljs.highlight(
+    'kotlin',
+    programmingLanguageTabs[activeIndex].code
+  ).value;
 
   return (
     <div className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">
@@ -51,14 +39,17 @@ export function ProgrammingLanguage() {
       </div>
 
       <div className="kto-col-8 kto-col-md-12">
-        <TabList value={activeIndex} onChange={v => setActiveIndex(v)}>
+        <TabList value={activeIndex} onChange={(v) => setActiveIndex(v)}>
           {programmingLanguageTabs.map((tab, i) => (
             <Tab key={i}>{tab.title}</Tab>
           ))}
         </TabList>
         <TabSeparator />
         <pre className="programming-language__code kto-offset-top-16">
-          <code className="hljs" dangerouslySetInnerHTML={{ __html: highlighted }} />
+          <code
+            className="hljs"
+            dangerouslySetInnerHTML={{ __html: highlighted }}
+          />
         </pre>
       </div>
     </div>

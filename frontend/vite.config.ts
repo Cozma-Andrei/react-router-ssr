@@ -15,19 +15,15 @@ export default defineConfig({
       '@rescui/card',
       '@rescui/checkbox',
       '@rescui/colors',
+      "@rescui/focus-manager",
       '@rescui/icons',
       '@rescui/input',
+      '@rescui/switcher',
       '@rescui/tab-list',
       '@rescui/tooltip',
       '@rescui/typography',
       '@rescui/ui-contexts',
       '@jetbrains/kotlin-web-site-ui'
     ],
-  },
-  optimizeDeps: {
-    include: ["react", "react-dom", "react-router-dom"],
-    exclude: [
-      '@jetbrains/kotlin-web-site-ui'
-    ]
   }
 });

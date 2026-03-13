@@ -1,26 +1,22 @@
-import { useState, useEffect } from 'react';
+// @ts-ignore
+import Footer from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import { ThemeProvider } from '@rescui/ui-contexts';
-import '@jetbrains/kotlin-web-site-ui/dist/footer.css';
 
-const Footer = (props: any) => {
-  const [Component, setComponent] = useState<any>(null);
-
-  useEffect(() => {
-    // @ts-ignore
-    import('@jetbrains/kotlin-web-site-ui/dist/footer.js').then((mod) => {
-      setComponent(() => mod.default);
-    });
-  }, []);
-
-  if (!Component) {
-    return <div style={{ minHeight: '200px' }} />;
-  }
-
+const GlobalFooter = (props: any) => {
   return (
     <ThemeProvider theme="dark">
-      <Component {...props} />
+      <Footer
+        {...props}
+        currentUrl="/"
+        hasSearch={false}
+        searchConfig={{
+          searchAlgoliaId: '',
+          searchAlgoliaApiKey: '',
+          searchAlgoliaIndexName: '',
+        }}
+      />
     </ThemeProvider>
   );
 }
 
-export default Footer;
+export default GlobalFooter;
